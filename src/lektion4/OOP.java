@@ -1,6 +1,12 @@
 package lektion4;
 
+import java.util.Scanner;
+
 public class OOP {
+	
+	public static Scanner input = new Scanner(System.in);
+	
+	
 	public static class Bruch{
 		private static class Zahler {
 			private int zahler;
@@ -18,7 +24,9 @@ public class OOP {
 				if (nenner != 0) {
 					nenner = y;
 				}
-				System.out.println("")
+				System.out.println("Nenner darf nicht null sein!");
+				System.out.println("Das Programm ist beendet.");
+				System.exit(0);
 				
 			}
 			
@@ -52,8 +60,17 @@ public class OOP {
 	
 	
 	public static void main(String[] args) {
-		Bruch fraction = new Bruch(2,3);
+		System.out.println("Geben Sie zwei Zahlen (Zahler) und (Nenner) ein!");
+		
+		System.out.println("Die erste: ");
+		int x = input.nextInt();
+		
+		System.out.println("Die zweite: ");
+		int y = input.nextInt();
+		
+		Bruch fraction = new Bruch(x,y);
 		System.out.println(fraction.getZahler());
+		System.out.println(fraction.getNenner());
 
 	}
 
