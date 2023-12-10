@@ -21,12 +21,12 @@ public class OOP {
 		public static class Nenner{
 			private int nenner;
 			public Nenner(int y) {
-				if (nenner != 0) {
-					nenner = y;
+				if (y == 0) {
+					System.out.println("Nenner darf nicht null sein!");
+					System.out.println("Das Programm ist beendet.");
+					System.exit(0);
 				}
-				System.out.println("Nenner darf nicht null sein!");
-				System.out.println("Das Programm ist beendet.");
-				System.exit(0);
+				nenner = y;
 				
 			}
 			
@@ -56,6 +56,11 @@ public class OOP {
 		public int getNenner() {
 			return denominator.getNenner();
 		}
+		
+		public String toString() {
+			String bruch = "( " + this.getZahler() + "/" + this.getNenner() + ")";
+			return bruch;
+		}
 	}
 	
 	
@@ -69,9 +74,8 @@ public class OOP {
 		int y = input.nextInt();
 		
 		Bruch fraction = new Bruch(x,y);
-		System.out.println(fraction.getZahler());
-		System.out.println(fraction.getNenner());
-
+		System.out.println(fraction.toString());
+		
 	}
 
 }
