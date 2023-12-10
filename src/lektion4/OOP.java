@@ -15,7 +15,11 @@ public class OOP {
 		public static class Nenner{
 			private int nenner;
 			public Nenner(int y) {
-				nenner = y;
+				if (nenner != 0) {
+					nenner = y;
+				}
+				System.out.println("")
+				
 			}
 			
 			public int getNenner() {
