@@ -22,9 +22,7 @@ public class OOP {
 			private int nenner;
 			public Nenner(int y) {
 				if (y == 0) {
-					System.out.println("Nenner darf nicht null sein!");
-					System.out.println("Das Programm ist beendet.");
-					System.exit(0);
+					throw new IllegalArgumentException("Nenner darf nicht null sein!");
 				}
 				nenner = y;
 				
@@ -57,8 +55,44 @@ public class OOP {
 			return denominator.getNenner();
 		}
 		
+		static int gcd(int a, int b) {
+			while (a != b) {
+				if (a > b) {
+					a = a - b;
+				} else {
+					b = b - a;
+				}
+			}
+			return a;
+		}
+		
+		static int lcm(int a, int b) {
+			return a / gcd(a,b) * b;
+		}
+		
+		
+		static Bruch addiere(Bruch first, Bruch second) {
+			int numerator = 0;
+			int denominator = 0;
+			if (first.getNenner() == second.getNenner()) {
+				numerator = first.getZahler() + second.getZahler();
+				denominator = first.getNenner();
+				Bruch result = new Bruch(numerator,denominator);
+				return result;
+			}
+			
+			else {
+				int first_num = first.getZahler();
+				int first_den = first.getNenner();
+				int sec_num = second.getZahler();
+				int sec_den = second.getNenner();
+				System.out.println("НОК чисел " + first_den + " и " + sec_den + " = "+ lcm(first_den, sec_den));
+				return second;
+			}
+		}
+		
 		public String toString() {
-			String bruch = "( " + this.getZahler() + "/" + this.getNenner() + ")";
+			String bruch = "(" + this.getZahler() + "/" + this.getNenner() + ")";
 			return bruch;
 		}
 	}
@@ -74,7 +108,10 @@ public class OOP {
 		int y = input.nextInt();
 		
 		Bruch fraction = new Bruch(x,y);
-		System.out.println(fraction.toString());
+		Bruch fraction2 = new Bruch(5,7);
+//		System.out.println(fraction.toString());
+		
+		System.out.println(Bruch.addiere(fraction,fraction2));
 		
 	}
 
