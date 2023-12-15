@@ -11,7 +11,7 @@ public class OOP {
 				return zahler;
 			}
 		}
-	
+	// Nenner klasse sollte privat sein
 		public static class Nenner{
 			private int nenner;
 			public Nenner(int y) {
